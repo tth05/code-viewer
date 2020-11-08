@@ -2,6 +2,7 @@ package com.github.minecraft_ta.totaldebug.proxy;
 
 import com.github.minecraft_ta.totaldebug.KeyBindings;
 import com.github.minecraft_ta.totaldebug.block.tile.TickBlockTile;
+import com.github.minecraft_ta.totaldebug.handler.ChannelInputHandler;
 import com.github.minecraft_ta.totaldebug.handler.KeyInputHandler;
 import com.github.minecraft_ta.totaldebug.render.TickBlockTileRenderer;
 import net.minecraftforge.common.MinecraftForge;
@@ -14,6 +15,7 @@ public class ClientProxy extends CommonProxy {
     public void init(FMLInitializationEvent e) {
         super.init(e);
         MinecraftForge.EVENT_BUS.register(new KeyInputHandler());
+        MinecraftForge.EVENT_BUS.register(new ChannelInputHandler());
 
         ClientRegistry.bindTileEntitySpecialRenderer(TickBlockTile.class, new TickBlockTileRenderer());
 
